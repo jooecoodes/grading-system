@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2023 at 09:29 AM
+-- Generation Time: Dec 08, 2023 at 11:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -227,15 +227,17 @@ CREATE TABLE `teachers` (
   `id` int(15) NOT NULL,
   `email` varchar(255) NOT NULL,
   `pwd` int(255) NOT NULL,
-  `strand` int(255) NOT NULL
+  `strand` varchar(255) NOT NULL,
+  `section` char(2) NOT NULL,
+  `grd_lvl` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`id`, `email`, `pwd`, `strand`) VALUES
-(48, 'jefeljoevillacorta@gmail.com', 123123, 123);
+INSERT INTO `teachers` (`id`, `email`, `pwd`, `strand`, `section`, `grd_lvl`) VALUES
+(48, 'jefeljoevillacorta@gmail.com', 123123, 'ict', 'A', 11);
 
 --
 -- Indexes for dumped tables
