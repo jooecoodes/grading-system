@@ -27,6 +27,7 @@ function dataValidation($conn, $data)
             $_SESSION['teacherEmail'] = $result['email'];
             $_SESSION['teacherSection'] = $result['section'];
             $_SESSION['teacherStrand'] = $result['strand'];
+            $_SESSION['teacherGradeLevel'] = $result['grd_lvl'];
 
             echo "User login successfully";
         }
