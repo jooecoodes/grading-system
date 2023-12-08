@@ -9,5 +9,6 @@
 </head>
 <body>
    <?php include 'ict_form_page.php'; ?>
+   <button id="logoutBttn">log out</button>
 </body>
 </html>
