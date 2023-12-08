@@ -23,8 +23,10 @@ function dataValidation($conn, $data)
     if ($stmt->rowCount() > 0) {
         foreach ($results as $result) {
             //setup sessions
-            $_SESSION['userId'] = $result['id'];
-            $_SESSION['email'] = $result['email'];
+            $_SESSION['teacherId'] = $result['id'];
+            $_SESSION['teacherEmail'] = $result['email'];
+            $_SESSION['teacherSection'] = $result['section'];
+            $_SESSION['teacherStrand'] = $result['strand'];
 
             echo "User login successfully";
         }
