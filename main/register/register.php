@@ -3,7 +3,7 @@ require_once("../db_conn.php");
 if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confpwd']) && isset($_POST['strand']) && isset($_POST['token'])) {
     $email = (isset($_POST['email'])) ? htmlspecialchars($_POST['email']) : "email not set";
     $pwd = (isset($_POST['password'])) ? htmlspecialchars($_POST['password']) : "password not set";
-    $confPwd = (isset($_POST['conf-pwd'])) ? htmlspecialchars($_POST['conf-pwd']) : "conf pwd not set";
+    $confPwd = (isset($_POST['confpwd'])) ? htmlspecialchars($_POST['confpwd']) : "conf pwd not set";
     $strand = (isset($_POST['strand'])) ? htmlspecialchars($_POST['strand']) : "strand not set";
     $token = (isset($_POST['token'])) ? htmlspecialchars($_POST['token']) : "token not set";
     $data = [
