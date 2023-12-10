@@ -14,8 +14,25 @@
         <label for="passwordField">Password</label>
         <input type="password" name="password" id="passwordField" placeholder="Enter Password">
         <input type="password" name="conf-pwd" id="confPwdField" placeholder="Confirm Password">
+
         <label for="strandField">Strand</label>
-        <input type="text" name="strand" id="strandField" placeholder="Enter Strand">
+        <select name="strand" id="strandField">
+        <option value="abm">ABM</option>
+        <option value="ict">ICT</option>
+        <option value="humss">HUMSS</option>
+        <option value="he">HE</option>
+        <option value="stem">STEM</option>
+        <option value="eim">EIM</option>
+</select>
+        <label for="sectionField">section</label>
+        <input type="text" name="section" id="sectionField" placeholder="Enter section">
+
+        <label for="grade">Grade Level</label>
+        <select name="grade" id="gradeField">
+        <option value="11">11</option>
+        <option value="12">12</option>
+</select>
+
         <label for="tokenField">Token</label>
         <input type="text" name="token" id="tokenField" placeholder="Enter Token">
         <input type="submit" name="submit-btn" id="submitBtn" value="Submit">

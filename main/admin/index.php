@@ -8,18 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <p>Add and modify student</p> -->
-    <!-- <form>
-        <label for="studentFname">First Name</label>
-        <input type="text" name="student-fname" id="studentFname" placeholder="Enter First Name">
-        <label for="studentLname">Last Name</label>
-        <input type="text" name="student-lname" id="studentLname" placeholder="Enter Last Name">
-        <label for="studentGrade" id="studentGradeLabel">Student Grade</label>
-        <label for="numOfSubject">Enter Number of Subject</label>
-        <input type="number" name="num-of-subject" id="numOfSubject">
-        
-        
-        <input type="submit" value="Submit" id="submitBttn">
-    </form> -->
+<form id="adminForm">
+
+ <label for="tokenField">token</label>
+<input type="hidden" id="generateToken"value="generateToken">
+<button id="generateBttn">generate token</button>
+<p id="tokensStateIndicator"></p>
+</form>
 </body>
 </html>

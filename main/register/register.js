@@ -7,6 +7,8 @@ $(document).ready(function() {
         let confPwd = $("#confPwdField").val();
         let strand = $("#strandField").val();
         let token = $("#tokenField").val();
+        let section= $("#sectionField").val();
+        let grade = $("#gradeField").val();
 
         console.log(email);
         $.ajax({
@@ -18,6 +20,8 @@ $(document).ready(function() {
                 token: token, 
                 confpwd: confPwd, 
                 strand: strand,
+                section: section,
+                grade: grade,
             },
             success: function (response) {
                 console.log(response);

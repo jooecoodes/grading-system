@@ -8,7 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-   <?php include 'ict_form_page.php'; ?>
+<form id="studentForm">
+    <input type="number" name="numberOfStud" id="numberOfStud">
+    <button id="numberOfStudBttn">done</button>
+    <div id="studInputContainer"></div>
+    <input type="button" value="Submit" id="submitStudForm">
+</form>
    <button id="logoutBttn">log out</button>
 </body>
 </html>

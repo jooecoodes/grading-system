@@ -8,10 +8,16 @@ if (isset($_SESSION['teacherId'])) {
     $studTable = $teacherStrand . '_students_' . $teacherGradeLevel ;
     $studSection = $teacherSection;
 
-    if (isset($_POST['studLrn'], $_POST['studFname'], $_POST['studLname'])) {
-        $studLrn = $_POST['studLrn'];
-        $studFname = $_POST['studFname'];
-        $studLname = $_POST['studLname'];
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $postData = json_decode(file_get_contents('php://input'), true);
+
+        foreach ($studentsData as $student) {
+            $studLrn = $conn->real_escape_string($student['studLrn']);
+            $studFname = $conn->real_escape_string($student['studFname']);
+            $studentLname = $conn->real_escape_string($student['studentLname']);
+        
+            
+        }
         $data = [
             ":studLrn" => $studLrn,
             ":studFname" => $studFname,
@@ -24,16 +30,19 @@ if (isset($_SESSION['teacherId'])) {
             echo "All fields has to be fileld";
         }
     }
+        
+    
 } else {
     echo "You're not a teacher or logged in";
 }
 
 function insertStud($conn, $data, $studTable)
 {
-    $stmt = $conn->prepare("INSERT INTO $studTable(LRN, fname, lname, section) VALUES(:studLrn, :studFname, :studLname, :studSection");
+    $stmt = $conn->prepare("INSERT INTO $studTable(LRN, fname, lname, section) VALUES(:studLrn, :studFname, :studLname, :studSection)");
     if($stmt->execute($data)){
         echo "Successfully inserted data";
     } else {
         echo "Insertion Invalid";
     }
 }
+
