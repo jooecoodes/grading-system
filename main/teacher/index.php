@@ -9,13 +9,12 @@
 </head>
 <body>
 <form id="studentForm">
-    <input type="number" name="numberOfStud" id="numberOfStud">
+    <input type="number" name="numberOfStud" id="numberOfStud" max="10" min="0">
     <button id="numberOfStudBttn">done</button>
     <div id="studInputContainer"></div>
     <input type="button" value="Submit" id="submitStudForm">
 </form>
-    <a href=""></a>
-    <button id="manageStudentPageBttn">Manage Students</button>
+    <a href="manage-stud.php">Manage Students</a>
    <button id="logoutBttn">log out</button>
 </body>
 </html>

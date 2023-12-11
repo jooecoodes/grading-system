@@ -12,10 +12,12 @@
     <title>Document</title>
 </head>
 <body>
+    <p>Fetch all your students</p>
     <button id="testBttn">Fetch</button>
     <table id="studTable">
         <thead id="studTableHead">
             <tr>
+                <th>ID</th>
                 <th>LRN</th>
                 <th>First Name</th>
                 <th>Last Name</th>

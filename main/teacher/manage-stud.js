@@ -1,7 +1,7 @@
 $(document).ready(function() {
     let studTable = $("#studTable");
     let studThead = $("#studThead");
-    let studTbody = $("#studTbody");
+    let studTbody = $("#studTableBody");
     $("#testBttn").on("click", function(){
         $.ajax({
             type: "POST",
@@ -11,15 +11,32 @@ $(document).ready(function() {
                 let responseArray = JSON.parse(response);
                 console.log(responseArray);
                 responseArray.forEach(function(obj) {
-                    for(let key in obj) {
-                        console.log(key, obj[key]);
-                    }
+                    // for(let key in obj) {
+                    //     console.log(key, obj[key]);
+                    // }
+                    displayStudDataToTab(obj, studTbody);
                 })
-                // studTbody.append(html)
+            
             },
             error: function(error) {
                 console.error(error);
             }
         })
     })
+
+    function displayStudDataToTab(value, studTbody) {
+        let html = `
+            <tr data-key="${value['id']}">
+                <td>${value['id']}</td>
+                <td>${value['LRN']}</td>
+                <td>${value['fname']}</td>
+                <td>${value['lname']}</td>
+                <td>${value['section']}</td>
+                <td>${value['adviser']}</td>
+                <td><button class="editBttn">Edit</button></td>
+                <td><button class="deleteBttn">Delete</button></td>
+            </tr>
+        `;
+        studTbody.append(html);
+    }
 })
