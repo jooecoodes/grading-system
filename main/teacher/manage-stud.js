@@ -33,8 +33,8 @@ $(document).ready(function() {
                 <td>${value['lname']}</td>
                 <td>${value['section']}</td>
                 <td>${value['adviser']}</td>
-                <td><button class="editBttn">Edit</button></td>
-                <td><button class="deleteBttn">Delete</button></td>
+                <td><button class="editBttn" data-key="data">Edit</button></td>
+                <td><button class="deleteBttn" data-key="data">Delete</button></td>
             </tr>
         `;
         studTbody.append(html);
