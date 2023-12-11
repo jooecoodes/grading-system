@@ -23,12 +23,14 @@ function dataValidation($conn, $data)
     if ($stmt->rowCount() > 0) {
         foreach ($results as $result) {
             //setup sessions
+            $_SESSION['teacherFname'] = $result['fname'];
+            $_SESSION['teacherLname'] = $result['lname'];
             $_SESSION['teacherId'] = $result['id'];
             $_SESSION['teacherEmail'] = $result['email'];
             $_SESSION['teacherSection'] = $result['section'];
             $_SESSION['teacherStrand'] = $result['strand'];
-            $_SESSION['teacherGradeLevel'] = $result['grd_lvl'];
-
+            $_SESSION['teacherGrdlvl'] = $result['grd_lvl'];
+            $_SESSION['teacherToken'] = $result['token'];
             echo "User login successfully";
         }
     } else {

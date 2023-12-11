@@ -32,7 +32,8 @@ CREATE TABLE `abm_students_11` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -46,7 +47,8 @@ CREATE TABLE `abm_students_12` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -60,7 +62,8 @@ CREATE TABLE `eim_students_11` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -74,7 +77,8 @@ CREATE TABLE `eim_students_12` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -88,7 +92,8 @@ CREATE TABLE `gas_students_11` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -102,7 +107,8 @@ CREATE TABLE `gas_students_12` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -116,7 +122,8 @@ CREATE TABLE `he_students_11` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -130,7 +137,8 @@ CREATE TABLE `he_students_12` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -144,7 +152,8 @@ CREATE TABLE `humms_students_11` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -158,21 +167,22 @@ CREATE TABLE `humms_students_12` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ict_students_11`
---
+-- Table structure for table `ict_students_,
 
 CREATE TABLE `ict_students_11` (
   `id` int(11) NOT NULL,
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -193,7 +203,8 @@ CREATE TABLE `ict_students_12` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -207,7 +218,8 @@ CREATE TABLE `stem_students_11` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -221,7 +233,8 @@ CREATE TABLE `stem_students_12` (
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

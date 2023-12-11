@@ -2,6 +2,8 @@ $(document).ready(function() {
     $("#registrationForm").on("submit", function(e) {
         e.preventDefault();
         console.log("Executed");
+        let teacherFname = $("#teacherFname").val();
+        let teacherLname = $("#teacherLname").val();
         let email = $("#emailField").val();
         let password = $("#passwordField").val();
         let confPwd = $("#confPwdField").val();
@@ -15,6 +17,8 @@ $(document).ready(function() {
             type: "POST",
             url: "register.php",
             data: { 
+                fname: teacherFname,
+                lname: teacherLname,
                 email: email,
                 password: password,
                 token: token, 

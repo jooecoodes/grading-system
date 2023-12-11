@@ -9,12 +9,15 @@
 </head>
 <body>
     <form id="registrationForm">
+        <label for="teacherFname">First Name</label>
+        <input type="text" name="teacherFname" id="teacherFname">
+        <label for="teacherLname">Last Name</label>
+        <input type="text" name="teacherLname" id="teacherLname">
         <label for="emailField">Email</label>
         <input type="text" name="email" id="emailField" placeholder="Enter Email">
         <label for="passwordField">Password</label>
         <input type="password" name="password" id="passwordField" placeholder="Enter Password">
         <input type="password" name="conf-pwd" id="confPwdField" placeholder="Confirm Password">
-
         <label for="strandField">Strand</label>
         <select name="strand" id="strandField">
         <option value="abm">ABM</option>

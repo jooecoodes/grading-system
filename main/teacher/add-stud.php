@@ -9,7 +9,7 @@
 </head>
 <body>
 <form id="studentForm">
-    <input type="number" name="numberOfStud" id="numberOfStud">
+    <input type="number" name="numberOfStud" id="numberOfStud" max="10">
     <button id="numberOfStudBttn">done</button>
     <div id="studInputContainer"></div>
     <input type="button" value="Submit" id="submitStudForm">
