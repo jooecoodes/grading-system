@@ -8,14 +8,21 @@ $(document).ready(function() {
             url: "query-stud.php",
             data: {fetchStud: true},
             success: function(response) {
-                let responseArray = JSON.parse(response);
-                console.log(responseArray);
-                responseArray.forEach(function(obj) {
-                    // for(let key in obj) {
-                    //     console.log(key, obj[key]);
-                    // }
-                    displayStudDataToTab(obj, studTbody);
-                })
+                try {
+                    let responseArray = JSON.parse(response);
+                    console.log(responseArray);
+
+                    // Check if the response is an array before using forEach
+                    if (Array.isArray(responseArray)) {
+                        responseArray.forEach(function(obj) {
+                            displayStudDataToTab(obj, studTbody);
+                        });
+                    } else {
+                        console.log("Response is not an array:", responseArray);
+                    }
+                } catch (error) {
+                    console.error("Error parsing JSON:", error);
+                }
             
             },
             error: function(error) {

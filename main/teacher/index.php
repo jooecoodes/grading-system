@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['teacherId'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,3 +22,9 @@
    <button id="logoutBttn">log out</button>
 </body>
 </html>
+
+<?php
+}else{
+    echo "Your not log in";
+}
+?>

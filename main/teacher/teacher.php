@@ -4,31 +4,37 @@ session_start();
 if (isset($_SESSION['teacherId'])) {
     $teacherStrand = (isset($_SESSION['teacherStrand'])) ? htmlspecialchars($_SESSION['teacherStrand']) : 'teacher strand not set';
     $teacherSection = (isset($_SESSION['teacherSection'])) ? htmlspecialchars($_SESSION['teacherSection']) : "teacher section not set";
-    $teacherGradeLevel = (isset($_SESSION['teacherGradeLevel'])) ? htmlspecialchars($_SESSION['teacherGradeLevel']) : "teacher grade level not set";
+    $teacherGradeLevel = (isset($_SESSION['teacherGrdlvl'])) ? htmlspecialchars($_SESSION['teacherGrdlvl']) : "teacher grade level not set";
+    $teacherFname = (isset($_SESSION['teacherFname'])) ? htmlspecialchars($_SESSION['teacherFname']) : "teacher Fname not set";
+    $teacherLname = (isset($_SESSION['teacherLname'])) ? htmlspecialchars($_SESSION['teacherLname']) : "teacher Lname not set";
+    $teacherFullName = $teacherFname. ' ' . $teacherLname; 
     $studTable = $teacherStrand . '_students_' . $teacherGradeLevel;
     $studSection = $teacherSection;
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $postData = json_decode(file_get_contents('php://input'), true);
-        if (!empty($studLrn) && !empty($studFname) && !empty($studLname)) {
-            foreach ($studentsData as $student) {
+            foreach ($postData as $student) {
                 $studLrn =  htmlspecialchars($student['studLrn']);
-                $studFname =    htmlspecialchars($student['studFname']);
-                $studentLname = htmlspecialchars($student['studentLname']);
+                $studFname = htmlspecialchars($student['studFname']);
+                $studLname = htmlspecialchars($student['studLname']);
 
                 $data = [
                     ":studLrn" => $studLrn,
                     ":studFname" => $studFname,
                     ":studLname" => $studLname,
                     ":studSection" => $studSection,
+                    ":adviser"=> $teacherFullName,
                 ];
+                if (!empty($studLrn) && !empty($studFname) && !empty($studLname)) {
+               
 
                 //insertion
                 insertStud($conn, $data, $studTable);
+
+                } else {
+                    echo "All fields has to be filled";
+                }
             }
-        } else {
-            echo "All fields has to be fileld";
-        }
     }
 } else {
     echo "You're not a teacher or logged in";
@@ -36,7 +42,7 @@ if (isset($_SESSION['teacherId'])) {
 
 function insertStud($conn, $data, $studTable)
 {
-    $stmt = $conn->prepare("INSERT INTO $studTable(LRN, fname, lname, section) VALUES(:studLrn, :studFname, :studLname, :studSection)");
+    $stmt = $conn->prepare("INSERT INTO $studTable(LRN, fname, lname, section, adviser) VALUES(:studLrn, :studFname, :studLname, :studSection, :adviser)");
     if ($stmt->execute($data)) {
         echo "Successfully inserted data";
     } else {
