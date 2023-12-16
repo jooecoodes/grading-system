@@ -37,7 +37,9 @@ CREATE TABLE `abm_students_11` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,7 +58,9 @@ CREATE TABLE `abm_students_12` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -75,7 +79,9 @@ CREATE TABLE `eim_students_11` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -94,7 +100,9 @@ CREATE TABLE `eim_students_12` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -113,7 +121,9 @@ CREATE TABLE `gas_students_11` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -132,7 +142,9 @@ CREATE TABLE `gas_students_12` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -151,7 +163,9 @@ CREATE TABLE `he_students_11` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -170,7 +184,9 @@ CREATE TABLE `he_students_12` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -189,7 +205,9 @@ CREATE TABLE `humss_students_11` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -216,7 +234,9 @@ CREATE TABLE `humss_students_12` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -235,7 +255,9 @@ CREATE TABLE `ict_students_11` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -261,7 +283,9 @@ CREATE TABLE `ict_students_12` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -280,7 +304,9 @@ CREATE TABLE `stem_students_11` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -299,7 +325,9 @@ CREATE TABLE `stem_students_12` (
   `sem1_subjects` varchar(50) DEFAULT NULL,
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL
+  `sem2_grades` varchar(50) DEFAULT NULL,
+  `token` varchar(50),
+  `profile` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
