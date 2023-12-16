@@ -17,6 +17,7 @@ if (isset($_SESSION['teacherId'])) {
                 $studLrn =  htmlspecialchars($student['studLrn']);
                 $studFname = htmlspecialchars($student['studFname']);
                 $studLname = htmlspecialchars($student['studLname']);
+                $token = uniqid("",true);
 
                 $data = [
                     ":studLrn" => $studLrn,
@@ -24,6 +25,7 @@ if (isset($_SESSION['teacherId'])) {
                     ":studLname" => $studLname,
                     ":studSection" => $studSection,
                     ":adviser"=> $teacherFullName,
+                    ":token"=> $token
                 ];
                 if (!empty($studLrn) && !empty($studFname) && !empty($studLname)) {
                
@@ -42,7 +44,7 @@ if (isset($_SESSION['teacherId'])) {
 
 function insertStud($conn, $data, $studTable)
 {
-    $stmt = $conn->prepare("INSERT INTO $studTable(LRN, fname, lname, section, adviser) VALUES(:studLrn, :studFname, :studLname, :studSection, :adviser)");
+    $stmt = $conn->prepare("INSERT INTO $studTable(LRN, fname, lname, section, adviser, token) VALUES(:studLrn, :studFname, :studLname, :studSection, :adviser, :token)");
     if ($stmt->execute($data)) {
         echo "Successfully inserted data";
     } else {
