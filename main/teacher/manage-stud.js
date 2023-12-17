@@ -2,6 +2,22 @@ $(document).ready(function() {
     let studTable = $("#studTable");
     let studThead = $("#studThead");
     let studTbody = $("#studTableBody");
+    $("#studTableBody").on('click', '.editBttn, .deleteBttn', function() {
+        console.log("clicked");
+        // Access the data-key attribute to get the unique identifier
+        var dataToken = $(this).data('token');
+    
+        // Determine if it's an edit or delete button
+        if ($(this).hasClass('editBttn')) {
+            // Edit button clicked
+           location.href="../student/?user="+dataToken;
+            // Implement your edit logic here
+        } else if ($(this).hasClass('deleteBttn')) {
+            // Delete button clicked
+            console.log('Delete button clicked for data-token:', dataToken);
+            // Implement your delete logic here
+        }
+    });
     $("#testBttn").on("click", function(){
         $.ajax({
             type: "POST",
@@ -30,20 +46,29 @@ $(document).ready(function() {
             }
         })
     })
-
+    $(".edit-btn").click(function () {
+        console.log($(this).data('index'));
+        let dataIndex = $(this).data('index');
+        
+      })
     function displayStudDataToTab(value, studTbody) {
         let html = `
-            <tr data-key="${value['id']}">
+            <tr class="dataRow" data-key="${value['id']}">
                 <td>${value['id']}</td>
                 <td>${value['LRN']}</td>
                 <td>${value['fname']}</td>
                 <td>${value['lname']}</td>
                 <td>${value['section']}</td>
                 <td>${value['adviser']}</td>
-                <td><button class="editBttn" data-key="data">Edit</button></td>
-                <td><button class="deleteBttn" data-key="data">Delete</button></td>
+                <td><button class="editBttn" onclick="buttonClicked(this)" data-token="${value['token']}">Edit</button></td>
+                <td><button class="deleteBttn" onclick="buttonClicked(this)" data-token="${value['token']}">Delete</button></td>
             </tr>
         `;
         studTbody.append(html);
+    }
+    function buttonClicked(bttn){
+    var token = $(bttn).data("token");
+    location.href="../student/?user="+token;
+    console.log(token);
     }
 })

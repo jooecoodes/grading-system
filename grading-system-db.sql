@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 04:58 AM
+-- Generation Time: Dec 17, 2023 at 07:12 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,8 +38,8 @@ CREATE TABLE `abm_students_11` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,8 +59,25 @@ CREATE TABLE `abm_students_12` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance`
+--
+
+CREATE TABLE `attendance` (
+  `id` int(5) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `grd_lvl` varchar(50) NOT NULL,
+  `strand` varchar(50) NOT NULL,
+  `section` varchar(50) NOT NULL,
+  `adviser` varchar(50) NOT NULL,
+  `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -80,8 +97,8 @@ CREATE TABLE `eim_students_11` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -101,8 +118,8 @@ CREATE TABLE `eim_students_12` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -122,8 +139,8 @@ CREATE TABLE `gas_students_11` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -143,8 +160,8 @@ CREATE TABLE `gas_students_12` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -164,8 +181,8 @@ CREATE TABLE `he_students_11` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -185,8 +202,8 @@ CREATE TABLE `he_students_12` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -206,17 +223,17 @@ CREATE TABLE `humss_students_11` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `humss_students_11`
 --
 
-INSERT INTO `humss_students_11` (`id`, `LRN`, `fname`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`) VALUES
-(1, '264283648274', 'jhdsagdhadjkhadk', 'fdafstdasfdatdfa', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL),
-(2, '536215376153', 'adhadhajsdhadha', 'gdafsdfagdfadfagd', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL);
+INSERT INTO `humss_students_11` (`id`, `LRN`, `fname`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`) VALUES
+(5, '105220150089', 'Nickooo', 'Destroyer', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '657e7fd2b9ed79.95578812', 'Destroyer657e84126ef2c6.82942994.jpg'),
+(6, '738271837218', 'Harvey', 'Clarito', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '657e847c67c692.51689700', NULL);
 
 -- --------------------------------------------------------
 
@@ -235,8 +252,8 @@ CREATE TABLE `humss_students_12` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -256,16 +273,16 @@ CREATE TABLE `ict_students_11` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ict_students_11`
 --
 
-INSERT INTO `ict_students_11` (`id`, `LRN`, `fname`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`) VALUES
-(1, '2121', 'Nick', 'Clarito', 'A', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `ict_students_11` (`id`, `LRN`, `fname`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`) VALUES
+(1, '2121', 'Nick', 'Clarito', 'A', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -284,8 +301,8 @@ CREATE TABLE `ict_students_12` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -305,8 +322,8 @@ CREATE TABLE `stem_students_11` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -326,8 +343,8 @@ CREATE TABLE `stem_students_12` (
   `sem2_subjects` varchar(50) DEFAULT NULL,
   `sem1_grades` varchar(50) DEFAULT NULL,
   `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50),
-  `profile` varchar(50)
+  `token` varchar(50) DEFAULT NULL,
+  `profile` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -380,6 +397,12 @@ ALTER TABLE `abm_students_11`
 -- Indexes for table `abm_students_12`
 --
 ALTER TABLE `abm_students_12`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -483,6 +506,12 @@ ALTER TABLE `abm_students_12`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `attendance`
+--
+ALTER TABLE `attendance`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `eim_students_11`
 --
 ALTER TABLE `eim_students_11`
@@ -522,7 +551,7 @@ ALTER TABLE `he_students_12`
 -- AUTO_INCREMENT for table `humss_students_11`
 --
 ALTER TABLE `humss_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `humss_students_12`
