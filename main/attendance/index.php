@@ -12,5 +12,23 @@
 
 <video id="preview"></video>
   
+<form id="attendanceForm">
+<label>Profile:</label>
+<img src="" alt="" id="pfpField">
+<label for="">First name</label>
+<input type="text" name="fname" id="fnameField">
+<label for="">Last name</label>
+<input type="text" name="Lname" id="lnameField">
+<label for="">Grade level</label>
+<input type="text" name="grd_lvl" id="grd_lvlField">
+<label for="">Strand</label>
+<input type="text" name="strand" id="strandField">
+<label for="">Section</label>
+<input type="text" name="section" id="sectionField">
+<label for="adviser">Adviser</label>
+<input type="text" name="adviser" id="adviserField">
+<input type="submit" value="record">
+
+</form>
 </body>
 </html>
