@@ -62,6 +62,7 @@ $(document).ready(function() {
                 <td>${value['adviser']}</td>
                 <td><button class="editBttn" onclick="buttonClicked(this)" data-token="${value['token']}">Edit</button></td>
                 <td><button class="deleteBttn" onclick="buttonClicked(this)" data-token="${value['token']}">Delete</button></td>
+                <td><button class="gradeBttn" onclick="gradeBttnClicked(this)" data-token="${value['token']}">Grade</button></td>
             </tr>
         `;
         studTbody.append(html);
@@ -71,4 +72,14 @@ $(document).ready(function() {
     location.href="../student/?user="+token;
     console.log(token);
     }
+    function gradeBttnClicked(gradeBttn){
+        var token = $(gradeBttn).data("token");
+        location.href="grade/sem_select.php?user="+token;
+        
+    }
 })
+function gradeBttnClicked(gradeBttn){
+    var token = $(gradeBttn).data("token");
+    location.href="grade/sem_select.php?user="+token;
+    
+}
