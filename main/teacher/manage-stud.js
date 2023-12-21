@@ -18,6 +18,9 @@ $(document).ready(function() {
             // Implement your delete logic here
         }
     });
+    $("#subjectBttn").on("click", function(){
+        location.href="./subject/sem_select.php";
+    })
     $("#testBttn").on("click", function(){
         $.ajax({
             type: "POST",
