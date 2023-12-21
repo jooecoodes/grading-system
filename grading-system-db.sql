@@ -43,7 +43,7 @@ CREATE TABLE `abm_students_11` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -69,7 +69,7 @@ CREATE TABLE `abm_students_12` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -120,7 +120,7 @@ CREATE TABLE `eim_students_11` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -146,7 +146,7 @@ CREATE TABLE `eim_students_12` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -172,7 +172,7 @@ CREATE TABLE `gas_students_11` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -198,7 +198,7 @@ CREATE TABLE `gas_students_12` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -224,7 +224,7 @@ CREATE TABLE `he_students_11` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -250,7 +250,7 @@ CREATE TABLE `he_students_12` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -276,7 +276,7 @@ CREATE TABLE `humss_students_11` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -312,7 +312,7 @@ CREATE TABLE `humss_students_12` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -338,7 +338,7 @@ CREATE TABLE `ict_students_11` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -371,7 +371,7 @@ CREATE TABLE `ict_students_12` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -397,7 +397,7 @@ CREATE TABLE `stem_students_11` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -423,7 +423,7 @@ CREATE TABLE `stem_students_12` (
   `gender` varchar(50),
   `age` int(3),
   `birthdate`date,
-  `contact_no` int(20),
+  `contact_no` int(20)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
