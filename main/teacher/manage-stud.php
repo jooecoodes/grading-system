@@ -12,6 +12,7 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="subjectBttn" >Subjects</button>
     <p>Fetch all your students</p>
     <button id="testBttn">Fetch</button>
     <table id="studTable">

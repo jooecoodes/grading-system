@@ -6,17 +6,15 @@ if(isset($_GET['user'])){
     $userToken = $_GET['user'];
 
     if(isset($_SESSION['teacherId'])){
-
-        $teacherId = (isset($_SESSION['teacherId'])) ? $_SESSION['teacherId'] : "teacher id not set";
-        $teacherToken = (isset($_SESSION['teacherToken'])) ? $_SESSION['teacherToken'] : "teacher token not set";
-        $teacherStrand = (isset($_SESSION['teacherStrand'])) ? $_SESSION['teacherStrand'] : "teacher strand not set";
-        $teacherSection = (isset($_SESSION['teacherSection'])) ? $_SESSION['teacherSection'] : "teacher section not set";
-        $teacherGrdlvl = (isset($_SESSION['teacherGrdlvl'])) ? $_SESSION['teacherGrdlvl'] : "teacher grdlvl not set";
-        $teacherFname = (isset($_SESSION['teacherFname'])) ? $_SESSION['teacherFname'] : "teacher Fname not set";
-        $teacherLname = (isset($_SESSION['teacherLname'])) ? $_SESSION['teacherLname'] : "teacher lname not set";
-        $teacherFullName = $teacherFname . ' ' . $teacherLname;
-        $studTable = $teacherStrand . "_students_" . $teacherGrdlvl;
-
+     include("../teacher_session.php");
+     $stmt = $conn->prepare("SELECT sem1_subjects, sem2_subjects FROM teachers WHERE id=:teacherid");
+     $stmt->execute([
+        ':teacherid'=>$teacherId
+     ]);
+     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+     $teacherSubjectsSem1Array = explode(",", $result['sem1_subjects']);
+     $teacherSubjectsSem2Array = explode(",", $result['sem2_subjects']);
+     print_r($teacherSubjectsSem2Array);
     
         $stmt = $conn->prepare("SELECT * FROM $studTable WHERE adviser = :teacherfullname AND section = :teachersection AND token = :usertoken");
         $stmt->execute([
@@ -38,6 +36,10 @@ if(isset($_GET['user'])){
                 $studLrn = $result['LRN'];
                 $studAdviser = $result['adviser'];
                 $studFullName = $studFname. "_".$studLname;
+                $studGradesSem1 = $result['sem1_grades'];
+                $studGradesSem2 = $result['sem2_grades'];
+                $studGradesSem1Array = (empty($studGradesSem1))? "no grade" : explode(",", $studGradesSem1);
+                $studGradesSem2Array = (empty($studGradesSem2))? "no grade" : explode(",", $studGradesSem2);
                 $profilePath = (empty($studPfp)) ? "../../assets/profile/default.png" : "../../assets/profile/$studPfp";
                 
                 // Define the text to be encoded
@@ -81,6 +83,49 @@ if(isset($_GET['user'])){
             
                 <input type="submit" name="submit" value="Submit">
                 </form>
+                <table>
+        <thead>
+            <tr>
+                <th>Subjects</th>
+                <th>Q1</th>
+                <th>Q2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add your data rows here -->
+            <?php for($i = 0; $i<count($teacherSubjectsSem1Array); $i++){    ?>
+            <tr>
+                <td><?php echo $teacherSubjectsSem1Array[$i]; ?></td>
+                <td><?php echo (!is_array($studGradesSem1Array)) ? $studGradesSem1Array : ((isset($studGradesSem1Array[$i])) ? $studGradesSem1Array[$i] : "no grade"); ?></td>
+
+            </tr>
+            <?php } ?>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <!-- sem2 table -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Subjects</th>
+                <th>Q3</th>
+                <th>Q4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add your data rows here -->
+            <?php for($i = 0; $i<count($teacherSubjectsSem2Array); $i++){    ?>
+            <tr>
+            <td><?php echo $teacherSubjectsSem2Array[$i]; ?></td>
+            <td><?php echo (!is_array($studGradesSem1Array)) ? $studGradesSem1Array : ((isset($studGradesSem1Array[$i])) ? $studGradesSem1Array[$i] : "no grade"); ?></td>
+            </tr>
+            <?php } ?>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
             </body>
             </html>
             <?php

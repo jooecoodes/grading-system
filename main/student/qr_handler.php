@@ -6,7 +6,7 @@ require_once('../../phpqrcode/qrlib.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Check if the file was uploaded without errors
-    if (isset($_FILES["pfp"],$_POST['lname'],$_POST['fname'],$_POST['LRN'],$_POST['token']) && $_FILES["pfp"]["error"] == UPLOAD_ERR_OK) {
+    if (isset($_POST['lname'],$_POST['fname'],$_POST['LRN'],$_POST['token'])) {
         $teacherId = (isset($_SESSION['teacherId'])) ? $_SESSION['teacherId'] : "teacher id not set";
         $teacherToken = (isset($_SESSION['teacherToken'])) ? $_SESSION['teacherToken'] : "teacher token not set";
         $teacherStrand = (isset($_SESSION['teacherStrand'])) ? $_SESSION['teacherStrand'] : "teacher strand not set";
@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $teacherFullName = $teacherFname . ' ' . $teacherLname;
         $studTable = $teacherStrand . "_students_" . $teacherGrdlvl;
         // Specify the directory to save the uploaded file
-        $studPfp = $_FILES['pfp'];
         // $studId = $_POST['id'];
         $studLname = $_POST['lname'];
         $studFname = $_POST['fname'];
@@ -27,9 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $studLrn = $_POST['LRN'];
         // $studStrand = $_POST['strand'];
         $studToken = $_POST['token'];
+        print_r($_POST);
+        print_r($studLname);
+        print_r($studFname);
+        print_r($studLrn);
+        print_r($studToken);
 
         $uploadDirectory = "../../assets/profile/";
-
+        if(isset($_FILES['pfp'])){
+            $studPfp = $_FILES['pfp'];
         // Get the temporary file name
         $tmpFileName = $studPfp["tmp_name"];
         $img_ex = pathinfo($studPfp['name'], PATHINFO_EXTENSION);
@@ -45,23 +50,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             } else {
                 echo "Error uploading file.";
             }
-            $stmt = $conn->prepare("UPDATE $studTable SET `profile` = :studpfp, lname = :studlname, fname = :studfname, LRN = :studlrn WHERE token=:studtoken");
-    
-            $stmt->execute([
-                ":studpfp"=>$new_img_name,
-                ":studlname"=>$studLname,
-                ":studfname"=>$studFname,
-                ":studlrn"=>$studLrn,
-                ":studtoken"=>$studToken
-            ]);
-            if($stmt->rowCount()>0){
-               echo "successfully updated";
-            }else{
-                echo "Failed update";
-            }
-        }
-        
+            updatePfp($conn, $studTable, [":studpfp"=>$new_img_name, ":studtoken"=>$studToken]);
 
+
+            
+        }
+    }else{
+        echo "error".$_FILES['pfp']['error'];
+    }
+    echo "this is executed";
+    updateInfo($conn, $studTable, [
+        ":studlname"=>$studLname,
+        ":studfname"=>$studFname,
+        ":studlrn"=>$studLrn,
+        ":studtoken"=>$studToken
+    ]);
+        
+        
 
         // Move the file to the specified directory
        
@@ -114,6 +119,34 @@ function insertStudPfp($conn, $data){
     } else {
         echo "Insertion Failed";
     }
+}
+function updatePfp($conn, $studTable, $data){
+    $stmt = $conn->prepare("UPDATE $studTable SET `profile`=:studpfp WHERE token=:studtoken");
+    
+    $stmt->execute($data);
+    if($stmt->rowCount()>0){
+       echo "successfully updated Profile";
+    }else{
+        echo "Failed update Profile";
+    }
+}
+function updateInfo($conn, $studTable, $data){
+    $stmt = $conn->prepare("UPDATE $studTable SET  `lname` = :studlname, `fname` = :studfname, `LRN` = :studlrn WHERE `token`=:studtoken");
+
+    // Debugging output
+    echo "Token: " . $data[':studtoken'] . "<br>";
+    echo "Last Name: " . $data[':studlname'] . "<br>";
+    echo "First Name: " . $data[':studfname'] . "<br>";
+    echo "LRN: " . $data[':studlrn'] . "<br>";
+    
+            $stmt->execute($data);
+            $errorInfo = $stmt->errorInfo();
+            if($stmt->rowCount()>0){
+               echo "successfully updated info";
+            }else{
+                echo "Failed update info".$errorInfo[0];
+            }
+
 }
 
 ?>

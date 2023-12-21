@@ -31,6 +31,8 @@ function dataValidation($conn, $data)
             $_SESSION['teacherStrand'] = $result['strand'];
             $_SESSION['teacherGrdlvl'] = $result['grd_lvl'];
             $_SESSION['teacherToken'] = $result['token'];
+            $_SESSION['teacherSubjectsSem1'] = $result['sem1_subjects'];
+            $_SESSION['teacherSubjectsSem2'] = $result['sem2_subjects'];
             echo "User login successfully";
         }
     } else {
