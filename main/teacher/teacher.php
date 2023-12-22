@@ -8,44 +8,66 @@ if (isset($_SESSION['teacherId'])) {
     $teacherFname = (isset($_SESSION['teacherFname'])) ? htmlspecialchars($_SESSION['teacherFname']) : "teacher Fname not set";
     $teacherLname = (isset($_SESSION['teacherLname'])) ? htmlspecialchars($_SESSION['teacherLname']) : "teacher Lname not set";
     $teacherFullName = $teacherFname. ' ' . $teacherLname; 
-    $studTable = $teacherStrand . '_students_' . $teacherGradeLevel;
     $studSection = $teacherSection;
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $postData = json_decode(file_get_contents('php://input'), true);
-            foreach ($postData as $student) {
-                $studLrn =  htmlspecialchars($student['studLrn']);
-                $studFname = htmlspecialchars($student['studFname']);
-                $studLname = htmlspecialchars($student['studLname']);
-                $token = uniqid("",true);
-
-                $data = [
-                    ":studLrn" => $studLrn,
-                    ":studFname" => $studFname,
-                    ":studLname" => $studLname,
-                    ":studSection" => $studSection,
-                    ":adviser"=> $teacherFullName,
-                    ":token"=> $token
-                ];
-                if (!empty($studLrn) && !empty($studFname) && !empty($studLname)) {
-               
-
+        if (isset($_POST["studNo"])) {
+            print_r($_POST);
+            for($i = 0; $i < $_POST["studNo"]; $i++) {
+            $studLrn = $_POST["student-lrn".$i];
+            $studFname = $_POST["student-fname".$i];
+            $studMinitial = $_POST["student-minitial".$i];
+            $studLname = $_POST["student-lname".$i];
+            $studGender = $_POST["student-gender".$i];
+            $studAge = $_POST["student-age".$i];
+            $studBirthDate = $_POST["student-birthdate".$i];
+            $token = uniqid("",true);
+            print_r($studLrn);
+            print_r($studFname);
+            print_r($studMinitial);
+            print_r($studLname);
+            print_r($studGender);
+            print_r($studAge);
+            print_r($studBirthDate);
+            print_r($token);
+            
+            $data = [
+                ":studLrn" => $studLrn,
+                ":studFname"=>$studFname,
+                ":studMinitial"=>$studMinitial,
+                ":studLname"=>$studLname,
+                ":studGender"=>$studGender,
+                ":studAge"=>$studAge,
+                ":studBirthDate"=>$studBirthDate,
+                ":token"=>$token,
+                ":adviser"=>$teacherFullName,
+                ":section"=>$teacherSection
+            ];
+              
+            if (!empty($studLrn) && !empty($studFname) && !empty($studMinitial) && !empty($studLname) && !empty($studGender) && !empty($studAge) && !empty($studBirthDate)) {
+                
+      
                 //insertion
-                insertStud($conn, $data, $studTable);
+                insertStud($conn, $data);
 
                 } else {
                     echo "All fields has to be filled";
                 }
+                }
+            
             }
-    }
-} else {
+           
+            
+        }
+     } else {
     echo "You're not a teacher or logged in";
 }
 
-function insertStud($conn, $data, $studTable)
-{
-    $stmt = $conn->prepare("INSERT INTO $studTable(LRN, fname, lname, section, adviser, token) VALUES(:studLrn, :studFname, :studLname, :studSection, :adviser, :token)");
-    if ($stmt->execute($data)) {
+function insertStud($conn, $data){
+    $stmt = $conn->prepare("INSERT INTO students(LRN, fname, minitial, lname, gender, age, birthdate, token, adviser, section) VALUES(:studLrn, :studFname, :studMinitial, :studLname, :studGender, :studAge, :studBirthDate, :token, :adviser, :section)");
+    $stmt->execute($data);
+    print_r($data);
+    if ($stmt->rowCount()>0) {
         echo "Successfully inserted data";
     } else {
         echo "Insertion Invalid";

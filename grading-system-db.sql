@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 07:47 AM
+-- Generation Time: Dec 22, 2023 at 08:57 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,58 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `grading-system-db`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `abm_students_11`
---
-
-CREATE TABLE `abm_students_11` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `abm_students_12`
---
-
-CREATE TABLE `abm_students_12` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -101,13 +49,14 @@ INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eim_students_11`
+-- Table structure for table `students`
 --
 
-CREATE TABLE `eim_students_11` (
+CREATE TABLE `students` (
   `id` int(11) NOT NULL,
   `LRN` char(12) NOT NULL,
   `fname` varchar(255) NOT NULL,
+  `minitial` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `section` varchar(50) NOT NULL,
   `adviser` varchar(50) DEFAULT NULL,
@@ -117,323 +66,19 @@ CREATE TABLE `eim_students_11` (
   `sem2_grades` varchar(50) DEFAULT NULL,
   `token` varchar(50) DEFAULT NULL,
   `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `eim_students_12`
---
-
-CREATE TABLE `eim_students_12` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gas_students_11`
---
-
-CREATE TABLE `gas_students_11` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gas_students_12`
---
-
-CREATE TABLE `gas_students_12` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `he_students_11`
---
-
-CREATE TABLE `he_students_11` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `he_students_12`
---
-
-CREATE TABLE `he_students_12` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `humss_students_11`
---
-
-CREATE TABLE `humss_students_11` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
+  `gender` varchar(50) DEFAULT NULL,
+  `age` int(3) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
+  `contact_no` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `humss_students_11`
+-- Dumping data for table `students`
 --
 
-INSERT INTO `humss_students_11` (`id`, `LRN`, `fname`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`) VALUES
-(5, '405220150089', 'Nickoo', 'Destroyer', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '657e7fd2b9ed79.95578812', 'Destroyer657fb59dcc6236.64271668.jpg'),
-(6, '764236427647', 'Harvey123', 'Clarito', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '657e847c67c692.51689700', 'Clarito657fc7d5b51c18.76678778.png'),
-(7, '748374892274', 'roar', 'grape', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '657fe995496d14.08612165', NULL),
-(8, '476426476686', 'moro', 'last', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '657fe995598149.18006206', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `humss_students_12`
---
-
-CREATE TABLE `humss_students_12` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ict_students_11`
---
-
-CREATE TABLE `ict_students_11` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ict_students_11`
---
-
-INSERT INTO `ict_students_11` (`id`, `LRN`, `fname`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`) VALUES
-(1, '2121', 'Nick', 'Clarito', 'A', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ict_students_12`
---
-
-CREATE TABLE `ict_students_12` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `stem_students_11`
---
-
-CREATE TABLE `stem_students_11` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `stem_students_12`
---
-
-CREATE TABLE `stem_students_12` (
-  `id` int(11) NOT NULL,
-  `LRN` char(12) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `section` varchar(50) NOT NULL,
-  `adviser` varchar(50) DEFAULT NULL,
-  `sem1_subjects` varchar(50) DEFAULT NULL,
-  `sem2_subjects` varchar(50) DEFAULT NULL,
-  `sem1_grades` varchar(50) DEFAULT NULL,
-  `sem2_grades` varchar(50) DEFAULT NULL,
-  `token` varchar(50) DEFAULT NULL,
-  `profile` varchar(50) DEFAULT NULL,
-  `gender` varchar(50),
-  `age` int(3),
-  `birthdate`date,
-  `contact_no` int(20)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `stem_students_12`
---
-
-INSERT INTO `stem_students_12` (`id`, `LRN`, `fname`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`) VALUES
-(1, '348274827482', 'please nick', 'good', 'B', 'Maria Clarito', NULL, NULL, NULL, NULL, '657fe9ec057e68.00013595', 'good657fea5e411c27.72678393.jpg'),
-(2, '432746327462', 'rice', 'san', 'B', 'Maria Clarito', NULL, NULL, NULL, NULL, '657fe9ec128220.38832376', NULL);
+INSERT INTO `students` (`id`, `LRN`, `fname`, `minitial`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`, `gender`, `age`, `birthdate`, `contact_no`) VALUES
+(1, '743827487348', 'Tatum', 'Et est esse provid', 'Cleveland', 'A', 'Nick Clarito', NULL, NULL, '', NULL, '658522e4525641.10604769', NULL, 'other', 31, '1978-09-07', NULL),
+(2, '657325873657', 'Barry', 'Blanditiis porro odi', 'Moon', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '658522e45b1da5.69709906', NULL, 'female', 98, '2007-04-08', NULL);
 
 -- --------------------------------------------------------
 
@@ -450,6 +95,8 @@ CREATE TABLE `teachers` (
   `strand` varchar(255) NOT NULL,
   `section` char(2) NOT NULL,
   `grd_lvl` int(12) NOT NULL,
+  `sem1_subjects` varchar(255) NOT NULL,
+  `sem2_subjects` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -457,9 +104,11 @@ CREATE TABLE `teachers` (
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`id`, `fname`, `lname`, `email`, `pwd`, `strand`, `section`, `grd_lvl`, `token`) VALUES
-(66, 'Nick', 'Clarito', 'nickcharlesclarito@gmail.com', '123', 'humss', 'A', 11, '986bcb997126bec18f36e09cb96ba298797133eb'),
-(67, 'Maria', 'Clarito', 'Maria@gmail.com', '123', 'stem', 'B', 12, '7b602d003fae4fa9129eba1a06463284b2de7e1d');
+INSERT INTO `teachers` (`id`, `fname`, `lname`, `email`, `pwd`, `strand`, `section`, `grd_lvl`, `sem1_subjects`, `sem2_subjects`, `token`) VALUES
+(66, 'Nick', 'Clarito', 'nickcharlesclarito@gmail.com', '123', 'humss', 'A', 11, 'Science,pr2', 'Dolore consectetur ,Reprehenderit veniam,Hic ex re', '986bcb997126bec18f36e09cb96ba298797133eb'),
+(67, 'Maria', 'Clarito', 'Maria@gmail.com', '123', 'stem', 'B', 12, '', '', '7b602d003fae4fa9129eba1a06463284b2de7e1d'),
+(68, 'Randy', 'Clarito', 'Randy@gmail.com', '123', 'humss', 'f', 12, '', '', 'efa06fde913a37d56de44784b5e1a9633c98c902'),
+(70, 'Joe', 'Villacorta', 'Joe@gmail.com', '123', 'ict', 'b', 12, '', '', 'b2e4ca5aed0ea0985c98737ec73ade217868694c');
 
 -- --------------------------------------------------------
 
@@ -473,20 +122,15 @@ CREATE TABLE `tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `tokens`
+--
+
+INSERT INTO `tokens` (`id`, `token`) VALUES
+(93, '808da696b4cabd56be918ce2dab42215f94fc39e');
+
+--
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `abm_students_11`
---
-ALTER TABLE `abm_students_11`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `abm_students_12`
---
-ALTER TABLE `abm_students_12`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `attendance`
@@ -495,75 +139,9 @@ ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `eim_students_11`
+-- Indexes for table `students`
 --
-ALTER TABLE `eim_students_11`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `eim_students_12`
---
-ALTER TABLE `eim_students_12`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gas_students_11`
---
-ALTER TABLE `gas_students_11`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gas_students_12`
---
-ALTER TABLE `gas_students_12`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `he_students_11`
---
-ALTER TABLE `he_students_11`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `he_students_12`
---
-ALTER TABLE `he_students_12`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `humss_students_11`
---
-ALTER TABLE `humss_students_11`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `humss_students_12`
---
-ALTER TABLE `humss_students_12`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ict_students_11`
---
-ALTER TABLE `ict_students_11`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ict_students_12`
---
-ALTER TABLE `ict_students_12`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `stem_students_11`
---
-ALTER TABLE `stem_students_11`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `stem_students_12`
---
-ALTER TABLE `stem_students_12`
+ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -583,106 +161,28 @@ ALTER TABLE `tokens`
 --
 
 --
--- AUTO_INCREMENT for table `abm_students_11`
---
-ALTER TABLE `abm_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `abm_students_12`
---
-ALTER TABLE `abm_students_12`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `eim_students_11`
+-- AUTO_INCREMENT for table `students`
 --
-ALTER TABLE `eim_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `eim_students_12`
---
-ALTER TABLE `eim_students_12`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `gas_students_11`
---
-ALTER TABLE `gas_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `gas_students_12`
---
-ALTER TABLE `gas_students_12`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `he_students_11`
---
-ALTER TABLE `he_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `he_students_12`
---
-ALTER TABLE `he_students_12`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `humss_students_11`
---
-ALTER TABLE `humss_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `humss_students_12`
---
-ALTER TABLE `humss_students_12`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ict_students_11`
---
-ALTER TABLE `ict_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `ict_students_12`
---
-ALTER TABLE `ict_students_12`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `stem_students_11`
---
-ALTER TABLE `stem_students_11`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `stem_students_12`
---
-ALTER TABLE `stem_students_12`
+ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

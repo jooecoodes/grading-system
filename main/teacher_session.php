@@ -9,7 +9,6 @@
         $teacherSubjectsSem1 = (isset($_SESSION['teacherSubjectsSem1'])) ? $_SESSION['teacherSubjectsSem1'] : "teacher sem1 not set";
         $teacherSubjectsSem2 = (isset($_SESSION['teacherSubjectsSem2'])) ? $_SESSION['teacherSubjectsSem2'] : "teacher sem2 not set";
         $teacherFullName = $teacherFname . ' ' . $teacherLname;
-        $studTable = $teacherStrand . "_students_" . $teacherGrdlvl;
  
  
 

@@ -1,11 +1,7 @@
 $(document).ready(function () {
   $("#numberOfStudBttn").on("click", function (e) {
-    e.preventDefault();
-    let minOfStud = 0;
-    let maxOfStud = 10;
-    let numOfStud = $("#numberOfStud").val();
-    displayFields(numOfStud, maxOfStud, minOfStud);
-    console.log(numOfStud);
+    let numStud = $("#numberOfStud").val();
+   location.href="?stud_no="+numStud;
   });
   $("#logoutBttn").on("click", function () {
     $.ajax({
@@ -20,53 +16,8 @@ $(document).ready(function () {
       },
     });
   });
-  $("#submitStudForm").on("click", function () {
-    let numOfStud = $("#numberOfStud").val();
-
-    let data = configData(numOfStud);
-    let extractedData = extractData(data);
-    console.log(data);
-    $.ajax({
-      url: "teacher.php",
-      type: "POST",
-      data: JSON.stringify(extractedData),
-      contentType: "application/json; charset=utf-8",
-      dataType: "text",
-      async: false,
-      success: function (response) {
-          if (response.includes("Successfully inserted data")) {
-            alert("Data successfully inserted");
-        } else {
-            alert("Insertion failed: " + response);
-        }
-      },
-      error: function (error) {
-        console.error(error);
-      },
-    });
-  });
-  function displayFields(numOfStud, max, min) {
-    $("#studInputContainer").empty();
-    if(numOfStud > max) {
-        numOfStud = max;
-    } else if (numOfStud < min){
-        numOfStud = min;
-    }
-    
-    for (let i = 0; i < numOfStud; i++) {
-      let html = `
-    
-        <label for="studentLrn">LRN</label>
-        <input max="12" type="text" name="student-lrn" id="studentLrn" pattern="[0-9]+"  placeholder="Enter LRN" data-key="${i}" required>
-        <label for="studentFname">First Name</label>
-        <input maxlength="20" type="text" name="student-fname" id="studentFname" placeholder="Enter First Name" data-key="${i}">
-        <label for="studentLname">Last Name</label>
-        <input maxlength="20" type="text" name="student-lname" id="studentLname" placeholder="Enter Last Name" data-key="${i}">
-       
-        `;
-      $("#studInputContainer").append(html);
-    }
-  }
+  
+  
   function configData(numOfStud) {
     let data = [];
     let dataObject = {};
