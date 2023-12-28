@@ -13,8 +13,8 @@ $userToken = $_GET['user'];
     <title>Document</title>
 </head>
 <body>
-    <a href="index.php/?user=<?php echo $userToken?>&sem=1">Semester 1</a>
+    <a href="quarter_select.php/?user=<?php echo $userToken?>&sem=1">Semester 1</a>
 
-    <a href="index.php/?user=<?php echo $userToken?>&sem=2">Semester 2</a>
+    <a href="quarter_select.php/?user=<?php echo $userToken?>&sem=2">Semester 2</a>
 </body>
 </html>

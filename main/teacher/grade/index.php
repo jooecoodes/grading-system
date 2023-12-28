@@ -3,12 +3,13 @@ session_start();
 require_once('../../db_conn.php');
 $teacherSubjects = array(); // Initialize to an empty array
 
-if(isset($_GET['user'], $_GET['sem'])){
+if(isset($_GET['user'], $_GET['sem'], $_GET['q'])){
 
 if(isset($_SESSION['teacherId'])){
 
 $userToken = $_GET['user'];
 $sem = $_GET['sem'];
+$quarter = $_GET['q'];
 $teacherId = (isset($_SESSION['teacherId'])) ? $_SESSION['teacherId'] : "teacher id not set"; 
 $teacherSubjects = explode(",", retrieveTeacherSubject($conn, $sem, $teacherId));
 $teacherStrand = (isset($_SESSION['teacherStrand'])) ? htmlspecialchars($_SESSION['teacherStrand']) : 'teacher strand not set';
@@ -17,9 +18,8 @@ $teacherGradeLevel = (isset($_SESSION['teacherGrdlvl'])) ? htmlspecialchars($_SE
     $teacherFname = (isset($_SESSION['teacherFname'])) ? htmlspecialchars($_SESSION['teacherFname']) : "teacher Fname not set";
     $teacherLname = (isset($_SESSION['teacherLname'])) ? htmlspecialchars($_SESSION['teacherLname']) : "teacher Lname not set";
     $teacherFullName = $teacherFname. ' ' . $teacherLname; 
-    $studTable = $teacherStrand . '_students_' . $teacherGradeLevel;
     $studSection = $teacherSection;
-    $userInfo = retrieveStud($conn, $userToken, $studTable);
+    $userInfo = retrieveStud($conn, $userToken);
     var_dump($userInfo);
 var_dump($teacherSubjects);
     }else{
@@ -43,8 +43,8 @@ function retrieveTeacherSubject($conn, $sem, $teacherId){
     }
     
 }
-function retrieveStud($conn, $token, $studTable){
-    $stmt = $conn->prepare("SELECT `profile`, fname, lname, LRN FROM $studTable WHERE token=:token ");
+function retrieveStud($conn, $token){
+    $stmt = $conn->prepare("SELECT `profile`, fname, lname, LRN FROM students WHERE token=:token ");
     $stmt->execute([
         ':token'=>$token
     ]);
@@ -71,6 +71,7 @@ function retrieveStud($conn, $token, $studTable){
      <form action="grade.php" method="POST">
        <input type="hidden" name="sem" value="<?php echo $sem ?>">
        <input type="hidden" name="token" value="<?php echo $userToken ?>">
+       <input type="hidden" name="q" value="<?php echo $quarter ?>">
        <?php foreach($teacherSubjects as $subject):?>
         <label for=""><?php echo $subject ?></label>
         <input type="text" name="<?php echo $subject ?>"> 

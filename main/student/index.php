@@ -16,7 +16,7 @@ if(isset($_GET['user'])){
      $teacherSubjectsSem2Array = explode(",", $result['sem2_subjects']);
      print_r($teacherSubjectsSem2Array);
     
-        $stmt = $conn->prepare("SELECT * FROM $studTable WHERE adviser = :teacherfullname AND section = :teachersection AND token = :usertoken");
+        $stmt = $conn->prepare("SELECT * FROM students WHERE adviser = :teacherfullname AND section = :teachersection AND token = :usertoken");
         $stmt->execute([
             ":teacherfullname" =>  $teacherFullName,
             ":teachersection" => $teacherSection,

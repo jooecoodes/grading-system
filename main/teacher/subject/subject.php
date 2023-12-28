@@ -17,6 +17,7 @@ if(isset($_POST['subject1'])){
     $removedNumSub =  removeFromString($subjects, $_POST['numOfSub']);
     $removedSem = removeFromString($removedNumSub, $sem);
     $subjects = $removedSem;
+    print_r($subjects);
     $_SESSION['teacherSubjects']=$subjects;
     if($sem == 1){
     updateSubInSem($conn, $subjects, 1);

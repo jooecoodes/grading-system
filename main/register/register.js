@@ -28,10 +28,11 @@ $(document).ready(function() {
                 grade: grade,
             },
             success: function (response) {
-                console.log(response);
+                alert(response);
                 if(response == "Email invalid") {
                     alert('Email is invalid');
                 }
+                location.reload();
                 
             },
             error: function (xhr, status, error) {

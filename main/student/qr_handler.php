@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $teacherFname = (isset($_SESSION['teacherFname'])) ? $_SESSION['teacherFname'] : "teacher Fname not set";
         $teacherLname = (isset($_SESSION['teacherLname'])) ? $_SESSION['teacherLname'] : "teacher lname not set";
         $teacherFullName = $teacherFname . ' ' . $teacherLname;
-        $studTable = $teacherStrand . "_students_" . $teacherGrdlvl;
         // Specify the directory to save the uploaded file
         // $studId = $_POST['id'];
         $studLname = $_POST['lname'];
@@ -50,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             } else {
                 echo "Error uploading file.";
             }
-            updatePfp($conn, $studTable, [":studpfp"=>$new_img_name, ":studtoken"=>$studToken]);
+            updatePfp($conn, [":studpfp"=>$new_img_name, ":studtoken"=>$studToken]);
 
 
             
@@ -59,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "error".$_FILES['pfp']['error'];
     }
     echo "this is executed";
-    updateInfo($conn, $studTable, [
+    updateInfo($conn, [
         ":studlname"=>$studLname,
         ":studfname"=>$studFname,
         ":studlrn"=>$studLrn,
@@ -120,8 +119,8 @@ function insertStudPfp($conn, $data){
         echo "Insertion Failed";
     }
 }
-function updatePfp($conn, $studTable, $data){
-    $stmt = $conn->prepare("UPDATE $studTable SET `profile`=:studpfp WHERE token=:studtoken");
+function updatePfp($conn, $data){
+    $stmt = $conn->prepare("UPDATE students SET `profile`=:studpfp WHERE token=:studtoken");
     
     $stmt->execute($data);
     if($stmt->rowCount()>0){
@@ -130,8 +129,8 @@ function updatePfp($conn, $studTable, $data){
         echo "Failed update Profile";
     }
 }
-function updateInfo($conn, $studTable, $data){
-    $stmt = $conn->prepare("UPDATE $studTable SET  `lname` = :studlname, `fname` = :studfname, `LRN` = :studlrn WHERE `token`=:studtoken");
+function updateInfo($conn, $data){
+    $stmt = $conn->prepare("UPDATE students SET  `lname` = :studlname, `fname` = :studfname, `LRN` = :studlrn WHERE `token`=:studtoken");
 
     // Debugging output
     echo "Token: " . $data[':studtoken'] . "<br>";

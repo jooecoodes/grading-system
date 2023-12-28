@@ -39,7 +39,7 @@ if(isset( $_POST['fname'], $_POST['lname'], $_POST['grd_lvl'], $_POST['strand'],
         }
 }
 if(isset($_POST['getStudData'])){
-   $stmt = $conn->prepare("SELECT * FROM $studTable WHERE token=:token ");
+   $stmt = $conn->prepare("SELECT * FROM students WHERE token=:token ");
    $stmt->execute([":token"=>$studToken]);
    $result = $stmt->fetch(PDO::FETCH_ASSOC);
    if($stmt->rowCount()>0){

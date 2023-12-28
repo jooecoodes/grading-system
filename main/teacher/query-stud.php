@@ -10,7 +10,6 @@
         $teacherFname = (isset($_SESSION['teacherFname'])) ? $_SESSION['teacherFname'] : "teacher Fname not set";
         $teacherLname = (isset($_SESSION['teacherLname'])) ? $_SESSION['teacherLname'] : "teacher lname not set";
         $teacherFullName = $teacherFname . ' ' . $teacherLname;
-        $studTable = $teacherStrand . "_students_" . $teacherGrdlvl;
         $dataForTokenVerification = [
             ":teacherid" => $teacherId,
             ":teachertoken" => $teacherToken,
@@ -21,7 +20,7 @@
         ];
 
         if(verifyTeacherToken($conn, $dataForTokenVerification)) {
-           $result = fetchStud($conn, $dataForStudFetch, $studTable);
+           $result = fetchStud($conn, $dataForStudFetch);
            echo json_encode($result);
         } else {
             echo "Token verification invalid";
@@ -41,8 +40,8 @@
         }
     }
 
-    function fetchStud($conn, $data, $studTable) {
-        $stmt = $conn->prepare("SELECT * FROM $studTable WHERE adviser = :teacherfullname AND section = :teachersection");
+    function fetchStud($conn, $data) {
+        $stmt = $conn->prepare("SELECT * FROM students WHERE adviser = :teacherfullname AND section = :teachersection");
         $stmt->execute($data);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if($result) {

@@ -28,7 +28,13 @@
         <option value="eim">EIM</option>
 </select>
         <label for="sectionField">section</label>
-        <input type="text" name="section" id="sectionField" placeholder="Enter section">
+        <select name="section" id="sectionField">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+        <option value="d">D</option>
+        <option value="f">F</option>
+</select>
 
         <label for="grade">Grade Level</label>
         <select name="grade" id="gradeField">
