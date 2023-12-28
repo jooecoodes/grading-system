@@ -49,7 +49,9 @@ INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
+--
+-- Table structure for table `ict_students_12`
+
 --
 
 CREATE TABLE `students` (
@@ -70,6 +72,7 @@ CREATE TABLE `students` (
   `age` int(3) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `contact_no` int(20) DEFAULT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
