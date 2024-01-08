@@ -18,6 +18,7 @@ $(document).ready(function (){
             let fullPathDirPfp = pathDir + pfp;
             
             console.log(parseJson);
+            $("#pfpField").attr("src", fullPathDirPfp);
             $("#fnameField").val(parseJson.fname);
             $("#lnameField").val(parseJson.lname);
             $("#grd_lvlField").val(parseJson.grd_lvl);
@@ -25,7 +26,7 @@ $(document).ready(function (){
             $("#sectionField").val(parseJson.section);
             $("#adviserField").val(parseJson.adviser);
            
-            $("#pfpField").attr("src", fullPathDirPfp);
+           
 
             
         },
@@ -94,4 +95,29 @@ $(document).ready(function (){
     }).catch(function (e) {
       console.error(e);
     });
+
+
+    // attendance table
+
+
+    // function fetchAttendance() {
+    //   $.ajax({
+    //     url: "import.php",
+    //     type: "POST",
+    //     data: {
+          
+    //     },
+    //     success: function(response) {
+    //       attendanceObj = JSON.parse(response);
+    //       console.log(attendanceObj);
+
+    //     },
+    //     error: function(erorr) {
+    //       console.error(error);
+    //     }
+
+    //   })
+    // }
+    
+    
 })

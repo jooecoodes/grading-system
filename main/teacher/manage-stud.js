@@ -22,6 +22,7 @@ $(document).ready(function() {
         location.href="./subject/sem_select.php";
     })
     $("#testBttn").on("click", function(){
+        studTbody.empty();
         $.ajax({
             type: "POST",
             url: "query-stud.php",
