@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2023 at 08:57 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jan 10, 2024 at 08:38 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,23 +35,25 @@ CREATE TABLE `attendance` (
   `strand` varchar(50) NOT NULL,
   `section` varchar(50) NOT NULL,
   `adviser` varchar(50) NOT NULL,
+  `gender` varchar(50) NOT NULL,
   `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `attendance`
 --
 
-INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`, `adviser`, `date`) VALUES
-(1, 'Harvey123', 'Clarito', '11', 'humss', 'A', 'Nick Clarito', '2023-12-18 14:35:28'),
-(2, 'please nick', 'good', '12', 'stem', 'B', 'Maria Clarito', '2023-12-18 14:45:23');
+INSERT INTO `attendance` (`id`, `fname`, `lname`, `grd_lvl`, `strand`, `section`, `adviser`, `gender`, `date`) VALUES
+(1, 'Harvey123', 'Clarito', '11', 'humss', 'A', 'Nick Clarito', '', '2023-12-18 14:35:28'),
+(2, 'please nick', 'good', '12', 'stem', 'B', 'Maria Clarito', '', '2023-12-18 14:45:23'),
+(15, 'Ok', 'okkaayo', '11', 'humss', 'b', 'Joe Villacorta', '', '2024-01-09 22:34:13'),
+(17, 'Tatum', 'Cleveland', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 22:48:17'),
+(18, 'John', 'Cena', '11', 'humss', 'A', 'Nick Clarito', '', '2024-01-09 23:32:30');
 
 -- --------------------------------------------------------
 
 --
---
--- Table structure for table `ict_students_12`
-
+-- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
@@ -72,16 +74,18 @@ CREATE TABLE `students` (
   `age` int(3) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `contact_no` int(20) DEFAULT NULL
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`id`, `LRN`, `fname`, `minitial`, `lname`, `section`, `adviser`, `sem1_subjects`, `sem2_subjects`, `sem1_grades`, `sem2_grades`, `token`, `profile`, `gender`, `age`, `birthdate`, `contact_no`) VALUES
-(1, '743827487348', 'Tatum', 'Et est esse provid', 'Cleveland', 'A', 'Nick Clarito', NULL, NULL, '', NULL, '658522e4525641.10604769', NULL, 'other', 31, '1978-09-07', NULL),
-(2, '657325873657', 'Barry', 'Blanditiis porro odi', 'Moon', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '658522e45b1da5.69709906', NULL, 'female', 98, '2007-04-08', NULL);
+(1, '743827487348', 'Tatum', 'Et est esse provid', 'Cleveland', 'A', 'Nick Clarito', NULL, NULL, '', NULL, '658522e4525641.10604769', 'Cleveland659ba655d34176.02033393.jpg', 'other', 31, '1978-09-07', NULL),
+(2, '657325873657', 'Barry', 'Blanditiis porro odi', 'Moon', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '658522e45b1da5.69709906', NULL, 'female', 98, '2007-04-08', NULL),
+(3, '123123123123', 'Ok', 'kaayo', 'okkaayo', 'b', 'Joe Villacorta', NULL, NULL, NULL, NULL, '659b582be618c5.24688719', 'okkaayo659b9526ad8685.64739761.jpg', 'male', 2, '2024-01-09', NULL),
+(4, '2351166', 'Lol', 'Lmao', 'XD', 'b', 'Joe Villacorta', NULL, NULL, NULL, NULL, '659b5891cf7ee6.82215892', NULL, 'female', 2, '2024-01-02', NULL),
+(5, '55555555', 'John', 'Doe', 'Cena', 'A', 'Nick Clarito', NULL, NULL, NULL, NULL, '659e4778dea0a3.19830798', 'Cena659e47b6d725f8.40119921.png', 'male', 21, '2024-01-05', NULL);
 
 -- --------------------------------------------------------
 
@@ -101,7 +105,7 @@ CREATE TABLE `teachers` (
   `sem1_subjects` varchar(255) NOT NULL,
   `sem2_subjects` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teachers`
@@ -122,7 +126,7 @@ INSERT INTO `teachers` (`id`, `fname`, `lname`, `email`, `pwd`, `strand`, `secti
 CREATE TABLE `tokens` (
   `id` int(15) NOT NULL,
   `token` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tokens`
@@ -167,13 +171,13 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `teachers`
