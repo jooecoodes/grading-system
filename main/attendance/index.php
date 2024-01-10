@@ -2,6 +2,7 @@
 ob_start(); // Start output buffering
 require_once("../db_conn.php");
 session_start();
+
 if (isset($_SESSION['teacherId'])) {
     $firstName = isset($_SESSION['teacherFname']) ? $_SESSION['teacherFname'] : "teacher fname not set";
     $lastName = isset($_SESSION['teacherLname']) ? $_SESSION['teacherLname'] : "teacher lname not set";
@@ -52,7 +53,10 @@ if (isset($_SESSION['teacherId'])) {
             <input type="text" name="section" id="sectionField">
             <label for="adviser">Adviser</label>
             <input type="text" name="adviser" id="adviserField">
+            <label for="genderField">Gender</label>
+            <input type="text" name="gender" id="genderField">
             <input type="submit" value="record">
+
 
 
         </form>
@@ -65,6 +69,14 @@ if (isset($_SESSION['teacherId'])) {
                 <input type="hidden" name="import-attendance" value="1">
             </form>
 
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get">
+                <label for="searchFnameField">First Name</label>
+                <input type="text" name="search-fname" id="searchFnameField">
+                <label for="searchLnameField">Last Name</label>
+                <input type="text" name="search-lname" id="searchLnameField">
+                <button type="submit" name="search">Search</button>
+
+            </form>
 
             <table id="studTable">
                 <thead id="studTableHead">
@@ -72,78 +84,160 @@ if (isset($_SESSION['teacherId'])) {
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Gender</th>
                         <th>Grade Level</th>
                         <th>Section</th>
                         <th>Adviser</th>
                         <th>Date</th>
                     </tr>
                 </thead>
+
+
                 <?php
-                if (isset($_POST['import-attendance'])) {
-                    // Check if a file is selected
-                    if (!empty($_FILES['csvFile']['name'])) {
-                        $file = $_FILES['csvFile']['tmp_name'];
 
-                        // Read the CSV file
-                        if (($handle = fopen($file, "r")) !== FALSE) {
+                // handle search
+                if (isset($_GET['search-fname'], $_GET['search-lname'])) {
+                    if (isset($_POST['import-attendance'])) {
+                        // Check if a file is selected
+                        if (!empty($_FILES['csvFile']['name'])) {
+                            $file = $_FILES['csvFile']['tmp_name'];
 
-                            // Read the headers
-                            // $headers = fgetcsv($handle);
-                            // echo "<td>";
-                            // foreach ($headers as $header) {
-                            //     echo "<td>$header</td>";
-                            // }
-                            // echo "</td>";
+                            // Read the CSV file
+                            if (($handle = fopen($file, "r")) !== FALSE) {
 
-                            // Read the data rows
-
-                            while (($data = fgetcsv($handle)) !== FALSE) {
-                                echo "<tr>";
-                                foreach ($data as $value) {
-                                    echo "<td>$value</td>";
+                                while (($data = fgetcsv($handle)) !== FALSE) {
+                                    echo "<tr>";
+                                    foreach ($data as $value) {
+                                        echo "<td>$value</td>";
+                                    }
+                                    echo "</tr>";
                                 }
-                                echo "</tr>";
+                                fclose($handle);
+                            } else {
+                                echo "Error opening the CSV file.";
                             }
-                            fclose($handle);
                         } else {
-                            echo "Error opening the CSV file.";
+                            echo "Please choose a CSV file to upload.";
                         }
+                        
                     } else {
-                        echo "Please choose a CSV file to upload.";
+
+                        $sqlSelectSearch = "SELECT * FROM attendance WHERE fname LIKE :fname AND lname LIKE :lname AND adviser=:teacherfullname";
+                        $stmtSearch = $conn->prepare($sqlSelectSearch);
+                        $stmtSearch->execute([
+                            ":fname" => '%' . $_GET['search-fname'] . '%',
+                            ":lname" => '%' . $_GET['search-lname'] . '%',
+                            ":teacherfullname" => $fullName
+                        ]);
+
+                        $resultSearch = $stmtSearch->fetchAll(PDO::FETCH_ASSOC);
+
+                        if ($stmtSearch->rowCount() > 0) {
+                            echo "Successfully selected all attendance searched";
+                        } else {
+                            echo "No result";
+                        }
                     }
-                } else {
+
+
                 ?>
 
                     <tbody id="studTableBody">
-                        <?php foreach ($results as $result) : ?>
+                        <?php foreach ($resultSearch as $resultFromSearch) : ?>
                             <tr>
                                 <td>
-                                    <p><?= $result['id'] ?></p>
+                                    <p><?= $resultFromSearch['id'] ?></p>
                                 </td>
                                 <td>
-                                    <p><?= $result['fname'] ?></p>
+                                    <p><?= $resultFromSearch['fname'] ?></p>
                                 </td>
                                 <td>
-                                    <p><?= $result['lname'] ?></p>
+                                    <p><?= $resultFromSearch['lname'] ?></p>
                                 </td>
                                 <td>
-                                    <p><?= $result['grd_lvl'] ?></p>
+                                    <p><?= $resultFromSearch['gender'] ?></p>
                                 </td>
                                 <td>
-                                    <p><?= $result['section'] ?></p>
+                                    <p><?= $resultFromSearch['grd_lvl'] ?></p>
+                                </td>
+                                <td>
+                                    <p><?= $resultFromSearch['section'] ?></p>
                                 </td>
 
                                 <td>
-                                    <p><?= $result['adviser'] ?></p>
+                                    <p><?= $resultFromSearch['adviser'] ?></p>
                                 </td>
                                 <td>
-                                    <p><?= $result['date'] ?></p>
+                                    <p><?= $resultFromSearch['date'] ?></p>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
 
+                    <?php
+
+                } else {
+
+                    if (isset($_POST['import-attendance'])) {
+                        // Check if a file is selected
+                        if (!empty($_FILES['csvFile']['name'])) {
+                            $file = $_FILES['csvFile']['tmp_name'];
+
+                            // Read the CSV file
+                            if (($handle = fopen($file, "r")) !== FALSE) {
+
+                                while (($data = fgetcsv($handle)) !== FALSE) {
+                                    echo "<tr>";
+                                    foreach ($data as $value) {
+                                        echo "<td>$value</td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                                fclose($handle);
+                            } else {
+                                echo "Error opening the CSV file.";
+                            }
+                        } else {
+                            echo "Please choose a CSV file to upload.";
+                        }
+                    } else {
+
+                    ?>
+
+                        <tbody id="studTableBody">
+                            <?php foreach ($results as $result) : ?>
+                                <tr>
+                                    <td>
+                                        <p><?= $result['id'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?= $result['fname'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?= $result['lname'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?= $result['gender'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?= $result['grd_lvl'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?= $result['section'] ?></p>
+                                    </td>
+
+                                    <td>
+                                        <p><?= $result['adviser'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p><?= $result['date'] ?></p>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+
                 <?php
+                    }
                 }
 
                 ?>
@@ -151,32 +245,13 @@ if (isset($_SESSION['teacherId'])) {
 
             <!-- Export  -->
 
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+            <form action="export.php" method="POST">
                 <input type="hidden" name="export-attendance" value="1">
                 <input type="submit" value="Export Attendance">
             </form>
 
 
-            <?php
-
-            if (isset($_POST['export-attendance'])) {
-                $data = $results;
-                $fileName = "csv-export";
-                $contentDisposition = 'Content-Disposition: attachment; filename=" ' . $fileName . '.csv"';
-                $path = "../../assets/csv/$fileName" . ".csv"; // specify the path to the CSV file
-                $handle = fopen($path, "w"); // open the file in write mode
-                foreach ($data as $row) { // loop through each row
-                    fputcsv($handle, $row); // write the row to the file
-                }
-
-                header('Content-Type: text/csv');
-                header($contentDisposition);
-                fclose($handle); // close the file
-            }
-
-
-
-            ?>
+         
 
         </div>
 
@@ -187,6 +262,7 @@ if (isset($_SESSION['teacherId'])) {
 } else {
     echo "You're not logged in or authorized to access this page";
 }
+
 
 
 

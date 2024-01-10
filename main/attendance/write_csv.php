@@ -11,4 +11,5 @@ foreach ($data as $row) { // loop through each row
   fputcsv($handle, $row); // write the row to the file
 }
 fclose($handle); // close the file
+
 ?>
