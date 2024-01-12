@@ -1,0 +1,198 @@
+* body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*layout Grid*/
+
+.body-lay {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    height: 1500px;
+}
+
+.header-lay {
+    grid-row: 1 / span 1;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    background-color: #030670;
+    height: 400px;
+}
+
+.main-lay {
+    grid-row: 2 / span 1;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    height: 1200px;
+}
+
+.footer-lay {
+    grid-row: 3 / span 1;
+    background-color: #FBB713;
+    height: 100px;
+}
+
+/*Header and nav*/
+
+.H-top {
+    display: grid;
+    grid-template-columns: 10% 20% 50% 10% 10%;
+    background-color: #FBB713;
+    height: 175px;
+}
+.logo {
+    grid-column: 1 / span 1;
+    height: 150px;
+    width: 150px;
+    margin: 15px;
+    background-image: url(../images/SCHOOL_LOGO.png);
+    background-size: cover;
+}
+.S-name {
+    margin-top: 15px;
+    grid-column: 2 / span 1;
+    font-size: 40px;
+    color: #fff;
+}
+.about {
+    margin-top: 30px;
+    grid-column: 4 / span 1;
+    font-size: 30px;
+    color: #fff;
+}
+.out {
+    margin-top: 30px;
+    grid-column: 5 / span 1;
+    font-size: 30px;
+    color: #fff;
+}
+
+.H-nav {
+    background-color: #fff;
+    height: 15px;
+}
+
+.H-bot {
+    background-color: #030670;
+    height: 400px;
+}
+
+/*main and links*/
+
+.description {
+    margin-top: 150px;
+    grid-row: 1 / span 1;
+    height: 300px
+}
+.intro {
+    width: 1300px;
+    padding: 30px;
+    margin-top: 70px;
+    border: 2px solid #030670;
+    border-radius: 20px;
+    margin-right: 200px;
+    margin-left: 270px;
+    text-align: center; 
+    font-size: 50px;
+    font-weight: bolder;
+    color: #030670;
+    background-color: #fff;
+    text-shadow: -1px -1px 0 #FBB713, 1px -1px 0 #FBB713, -1px 1px 0 #FBB713, 1px 1px 0 #FBB713;
+}
+
+.teacher {
+    width: 600px;
+    text-align: justify;
+    margin-left: 150px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    height: 100px;
+}
+.student {
+    width: 600px;
+    text-align: justify;
+    margin-left: 150px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    height: 100px;
+}
+
+.links {
+    grid-row: 2 / span 1;
+    display: grid;
+    grid-template-columns: 2 / span 1;
+    grid-template-rows: 20% 80%;
+    height: 700px;
+}
+.container1 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    border: 2px black solid;
+    border-radius: 30px;
+    margin-left: 130px;
+    background-image: url(../images/teacher.png);
+    background-size: cover;
+    width: 700px;
+    height: 400px;
+}   
+.container2 {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    border: 2px black solid;
+    border-radius: 30px;
+    margin-left: 130px;
+    background-image: url(../images/student.png);
+    background-size: cover;
+    width: 700px;
+    height: 400px;
+}
+
+/*text styles*/
+
+
+
+.header-main {
+    color: #FBB713;
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+}
+
+.C-footer {
+    color: #fff;
+    margin: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/*animation link*/
+
+.button {
+    transition: 0.2s;
+  }
+  
+  .button1:hover {
+    color: var(--hover-text);
+    transform: translate(-0.25rem, -0.25rem);
+    background-image: url(../images/teacher.png);
+    background-size: cover;
+    box-shadow: 0.25rem 0.25rem var(--bg);
+  }
+    
+  .button2:hover {
+    color: var(--hover-text);
+    transform: translate(-0.25rem, -0.25rem);
+    background-image: url(../images/student.png);
+    background-size: cover;
+    box-shadow: 0.25rem 0.25rem var(--bg);
+  }
+  
+  .button:active {
+    transform: translate(0);
+    box-shadow: none;
+  }

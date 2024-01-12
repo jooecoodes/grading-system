@@ -1,0 +1,170 @@
+* body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*layout Grid*/
+
+.body-lay {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    height: 1400px;
+}
+
+.header-lay {
+    grid-row: 1 / span 1;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    background-color: #030670;
+    height: 400px;
+}
+
+.main-lay {
+    grid-row: 2 / span 1;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    height: 1100px;
+}
+
+.footer-lay {
+    grid-row: 3 / span 1;
+    background-color: #FBB713;
+    height: 200px;
+}
+
+/*Header and nav*/
+
+.H-top {
+    display: grid;
+    grid-template-columns: 10% 20% 50% 10% 10%;
+    background-color: #FBB713;
+    height: 175px;
+}
+.logo {
+    grid-column: 1 / span 1;
+    height: 150px;
+    width: 150px;
+    margin: 15px;
+    background-image: url(../images/SCHOOL_LOGO.png);
+    background-size: cover;
+}
+.S-name {
+    margin-top: 15px;
+    grid-column: 2 / span 1;
+    font-size: 40px;
+    color: #fff;
+}
+.about {
+    margin-top: 30px;
+    grid-column: 4 / span 1;
+    font-size: 30px;
+    color: #fff;
+}
+.out {
+    margin-top: 30px;
+    grid-column: 5 / span 1;
+    font-size: 30px;
+    color: #fff;
+}
+
+.H-nav {
+    background-color: #fff;
+    height: 15px;
+}
+
+.H-bot {
+    background-color: #030670;
+    height: 300px;
+    text-align: center;
+    font-size: 70px;
+    color: #fff;
+    text-shadow: -2px -2px 0 #FBB713, 2px -2px 0 #FBB713, -2px 2px 0 #FBB713, 2px 2px 0 #FBB713;
+}
+
+.C-footer {
+    color: #fff;
+    margin: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/*attendance form*/
+
+.form-container {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    width: 600px;
+    height: 600px;
+    overflow-y: scroll;
+    display: table;
+    border-collapse: collapse;
+    grid-template-columns: repeat(2, 1fr);
+    border: black 2px solid;
+    border-radius: 20px;
+    border-radius: 40px;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+.attendform {
+    grid-column: 1 / span 1;
+    margin: 20px;
+    padding-left: 100px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.prof {
+    padding-left: 95px;
+    padding-right: 70px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+/*asdasdasd*/
+
+.leftside {
+    margin-top: 100px;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    width: 800px;
+}
+
+.studdd {
+    width: 900px;
+    margin-top: 100px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+/* Row styles */
+.form-row {
+    display: table-row;
+}
+
+/* Label styles */
+.form-label {
+    display: table-cell;
+    text-align: right;
+}
+
+.underline-input {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    padding: 5px;
+    width: 200px; /* Adjust the width as needed */
+}
+
+th, td {
+    padding: 10px;
+    border: 2px solid black;
+    border-color: #030670;
+    text-align: center;
+}
+
+.inputtt {
+    margin-top: 100px;
+}
