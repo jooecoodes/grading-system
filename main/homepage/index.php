@@ -38,7 +38,7 @@
             </section>
         </section>
         <section class="links">
-            <a href="redirect-attendance.php" target="_blank" class="container1 button button1">
+            <a href="../attendance/index.php" target="_blank" class="container1 button button1">
                 
             </a>
             <a href="" target="_blank" class="container2 button button2">
