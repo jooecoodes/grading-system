@@ -218,9 +218,11 @@ if (isset($_SESSION['teacherId'])) {
                         }
 
 
+
                     ?>
 
                         <tbody id="studTableBody">
+
                             <?php foreach ($resultSearch as $resultFromSearch) : ?>
                                 <tr>
                                     <td>
@@ -247,10 +249,12 @@ if (isset($_SESSION['teacherId'])) {
                                     </td>
                                     <td>
                                         <p><?= $resultFromSearch['date'] ?></p>
+
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
+
 
                         <?php
 
@@ -338,6 +342,8 @@ if (isset($_SESSION['teacherId'])) {
        
             <h4 class="C-footer">&copy; 2024 ICT 12 A. All rights reserved.</h4>
         </footer>   
+
+
     </body>
 
     </html>

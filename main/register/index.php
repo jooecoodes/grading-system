@@ -53,5 +53,6 @@
             location.href="../login/index.php";
         }
     </script>
+
 </body>
 </html>
