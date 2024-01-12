@@ -28,7 +28,7 @@
         <input type="password" name="password" id="passwordField" placeholder="Enter Password">
         </div>
         <a href="../register/index.php">not register ?</a>
-         <button type="submit" class="submit" value="submit" id="submitBttn">
+         <button type="submit" class="submit" value="submit" id="submitBttn" onclick="goBackFunction()">
         Sign in
       </button>
     </form>
@@ -36,6 +36,11 @@
 
     
    </form></div>
+   <script>
+    function goBackFunction(){
+        location.href="../homepage/index.php"
+    }
+    </script>
 
    
 

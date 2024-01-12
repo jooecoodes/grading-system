@@ -35,7 +35,7 @@ if (isset($_SESSION['teacherId'])) {
        
     </head>
     <body class="body-lay">
-
+  
         <header class="header-lay">
             <section class="H-top">
                 <a href="../homepage/index.php" class="logo">
@@ -57,8 +57,9 @@ if (isset($_SESSION['teacherId'])) {
                 <h2 class="attend">ATTENDANCE PAGE</h2>
             </section>
         </header>
+    
         <main class="main-lay">
-            <video id="preview"></video>
+          
             <section class="form-container">
                 <form id="attendanceForm">
                     <img src="" alt="" width="400px" height="400px" class="prof" id="pfpField">
@@ -77,7 +78,7 @@ if (isset($_SESSION['teacherId'])) {
                                 <label for="lnameField">Last name: </label>
                             </section>
                             <section class="form-input">
-                                <input type="text" name="Lname" class="underline-input" id="fnameField">
+                                <input type="text" name="Lname" class="underline-input" id="lnameField">
                             </section>
                         </section>
                         <section class="form-row">
@@ -126,6 +127,7 @@ if (isset($_SESSION['teacherId'])) {
             </section>
             <div class="leftside">
                 <!-- Import  -->
+                <video id="preview"></video>
                 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                     <label for="csvFile">Choose a CSV file:</label>
                     <input type="file" name="csvFile" id="csvFile" accept=".csv">
@@ -320,18 +322,20 @@ if (isset($_SESSION['teacherId'])) {
                 </table>
 
                 <!-- Export  -->
-
+               
                 <form action="export.php" method="POST">
                     <input type="hidden" name="export-attendance" value="1">
                     <input type="submit" value="Export Attendance">
                 </form>
 
 
-            
+               
 
             </div>
+       
         </main>  
         <footer class="footer-lay">
+       
             <h4 class="C-footer">&copy; 2024 ICT 12 A. All rights reserved.</h4>
         </footer>   
     </body>

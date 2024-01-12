@@ -46,6 +46,12 @@
         <label for="tokenField">Token</label>
         <input type="text" name="token" id="tokenField" placeholder="Enter Token">
         <input type="submit" name="submit-btn" id="submitBtn" value="Submit">
+        <button type="submit" name="submit-btn" id="submitBtn" value="Submit" onclick="backFunction()">back to login</button>
     </form>
+    <script>
+        function backFunction(){
+            location.href="../login/index.php";
+        }
+    </script>
 </body>
 </html>
